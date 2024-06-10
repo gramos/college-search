@@ -18,6 +18,22 @@
   </head>
 
   <body>
+    <header>
+    <h3>Entera's Home Challenge</h3>
+    </header>
+
+    <main>
+      <% flash.each do |type, msg| %>
+      <p class="notice">
+        <%= msg %>
+      </p>
+    <% end %>
+      
     <%= yield %>
-  </body>
+    </main>
+
+    <footer>
+      <p>by Gastón Ramos.</p>
+    </footer>
+   </body>
 </html>

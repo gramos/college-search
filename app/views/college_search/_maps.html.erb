@@ -1,0 +1,14 @@
+<%= turbo_frame_tag "maps" do %>
+<gmp-map center="<%= center['lat'] %>, <%= center['lon'] %>" zoom="6"
+         map-id="DEMO_MAP_ID" style="height: 400px" >
+
+  <% colleges && colleges['results'].each do |c| %>
+  
+  <gmp-advanced-marker
+        position="<%= c['location.lat'] %>,<%= c['location.lon'] %>"
+        title="<%= c['school.name'] %>"
+   ></gmp-advanced-marker>
+  
+  <% end %>
+</gmp-map>
+<% end %>
