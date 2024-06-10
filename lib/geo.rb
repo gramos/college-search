@@ -1,5 +1,4 @@
 class Geo
- # Necesitamos la biblioteca Math para varias operaciones matemáticas
   include Math
 
   def self.to_radians(degrees)
