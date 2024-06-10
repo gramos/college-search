@@ -16,9 +16,6 @@ class Geo
   def self.calculate_center(points)
     points = remove_nil(points)
 
-    Rails.logger.warn('GEO ------------------------------ ')
-    Rails.logger.warn(points.inspect)
-    
     # Convert to radians
     
     lat_rad = points.map { |point| to_radians(point['location.lat']) }

@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   get "up" => "rails/health#show", as: :rails_health_check
 
   # Defines the root path route ("/")
-  get "search" => "college_search#search"
+  get "search" => "college_search#search", as: "search"
+
   root "college_search#index"
 end
