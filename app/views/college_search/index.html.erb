@@ -1,4 +1,7 @@
 <p style="color: green"><%= notice %></p>
 
 <h1>College Search</h1>
-
+<%= form_tag('/search') do -%>
+  <%= text_field_tag :college_name %>
+  <%= submit_tag :search %>
+<% end -%>
