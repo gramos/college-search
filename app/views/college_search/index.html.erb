@@ -1,15 +1,14 @@
-<p style="color: green"><%= notice %></p>
+<header>
+  <h3>Entera's Home Challenge</h3>
+</header>
 
-<h1>College Search</h1>
-<hr /><br />
-<h3>Fill in the name of the school you want to search for:</h3>
+<main>
 
 <%= form_tag('/search', method: 'get') do -%>
+  <%= label_tag :college_name, 'Search by School Name' %>
   <%= text_field_tag :college_name, params['college_name'] %>
   <%= submit_tag :search %>
 <% end -%>
-
-<br />
 
 <gmp-map center="<%= @center['lat'] %>, <%= @center['lon'] %>" zoom="6"
          map-id="DEMO_MAP_ID" style="height: 400px" >
@@ -24,6 +23,12 @@
   <% end %>
 </gmp-map>
 
+</main>
+
+<footer>
+  <p>by Gastón Ramos.</p>
+</footer>
+ 
 <!-- 
      The `defer` attribute causes the script to execute after the full HTML
      document has been parsed. For non-blocking uses, avoiding race conditions,
@@ -32,7 +37,7 @@
      for more information.
   -->
 <script
-  src="https://maps.googleapis.com/maps/api/js?key=<%= CollegeApi.key %>&libraries=maps,marker&v=beta"
+  src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['GMAPS_API_KEY'] %>&libraries=maps,marker&v=beta"
   defer
   ></script>
 
