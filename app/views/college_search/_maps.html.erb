@@ -1,4 +1,11 @@
 <%= turbo_frame_tag "maps" do %>
+
+<% flash.each do |type, msg| %>
+  <p class="notice">
+    <%= msg %>
+  </p>
+<% end %>
+
 <gmp-map center="<%= center['lat'] %>, <%= center['lon'] %>" zoom="6"
          map-id="DEMO_MAP_ID" style="height: 400px" >
 

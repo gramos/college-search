@@ -23,13 +23,7 @@
     </header>
 
     <main>
-      <% flash.each do |type, msg| %>
-      <p class="notice">
-        <%= msg %>
-      </p>
-    <% end %>
-      
-    <%= yield %>
+      <%= yield %>
     </main>
 
     <footer>
