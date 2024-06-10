@@ -1,7 +1,41 @@
 <p style="color: green"><%= notice %></p>
 
 <h1>College Search</h1>
-<%= form_tag('/search') do -%>
+<hr /><br />
+<h3>Fill in the name of the school you want to search for:</h3>
+
+<%= form_tag('/search', method: 'get') do -%>
   <%= text_field_tag :college_name %>
   <%= submit_tag :search %>
 <% end -%>
+
+<br />
+
+<gmp-map center="34.783368,-86.568502" zoom="10"
+         map-id="DEMO_MAP_ID" style="height: 400px" >
+
+  <% @colleges && @colleges['results'].each do |c| %>
+  
+  <gmp-advanced-marker
+        position="<%= c['location']['lat'] %>,<%= c['location']['lon'] %>"
+        title="<%= c['school']['name'] %>"
+    ></gmp-advanced-marker>
+  
+  <% end %>
+
+</gmp-map>
+
+    <!-- 
+      The `defer` attribute causes the script to execute after the full HTML
+      document has been parsed. For non-blocking uses, avoiding race conditions,
+      and consistent behavior across browsers, consider loading using Promises. See
+      https://developers.google.com/maps/documentation/javascript/load-maps-js-api
+      for more information.
+      -->
+    <script
+      src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['GMAPS_API_KEY'] %>&libraries=maps,marker&v=beta"
+      defer
+    ></script>
+</script>
+
+  
