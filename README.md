@@ -30,3 +30,6 @@ export GMAPS_API_KEY=your-key-here
 export COLLEGE_API_KEY=your-key-here
 ```
 
+```
+rails s
+```
