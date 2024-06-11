@@ -14,6 +14,7 @@ class Geo
   end
   
   def self.calculate_center(points)
+    return {} if points.empty?
     points = remove_nil(points)
 
     # Convert to radians

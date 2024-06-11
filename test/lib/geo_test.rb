@@ -10,5 +10,7 @@ class GeoTest < ActiveSupport::TestCase
 
     expected = {"lat"=>69.36839237710977, "lon"=>8.76335661424886}
     assert_equal(expected, Geo.calculate_center(points))
+
+    assert_equal({}, Geo.calculate_center([]))
   end
 end
