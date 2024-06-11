@@ -1,7 +1,6 @@
 class CollegeApi
 
-  def self.search(name, per_page)
-    per_page ||= 100
+  def self.search(name, per_page = 100)
     fields  = "_fields=school.name,location.lat,location.lon" 
     uri     = URI("https://api.data.gov/ed/collegescorecard/v1/schools?api_key=#{self.key}&#{fields}&school.name=#{name}&per_page=#{per_page}")
 
@@ -14,6 +13,6 @@ class CollegeApi
   end
 
   def self.key
-    "qo1hY1KnV9gWzslbA3y2nK9fLe2ZXtRKfOVndNha"
+    ENV['COLLEGE_API_KEY']
   end
 end
