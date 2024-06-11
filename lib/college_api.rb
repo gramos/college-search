@@ -1,3 +1,5 @@
+require 'net/http'
+
 class CollegeApi
 
   def self.search(name, per_page = 100)

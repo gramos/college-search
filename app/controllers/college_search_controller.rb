@@ -1,5 +1,3 @@
-require 'net/http'
-
 class CollegeSearchController < ApplicationController
 
   def index
