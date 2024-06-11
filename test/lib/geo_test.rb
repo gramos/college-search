@@ -2,7 +2,7 @@ require "test_helper"
 
 class GeoTest < ActiveSupport::TestCase
 
-  test "the truth" do
+  test "Geo.calculate_center" do
     points = [{ 'location.lat' => 50, 'location.lon' => 60 },
               { 'location.lat' => 70, 'location.lon' => -60 },
               { 'location.lat' => 34, 'location.lon' => 60 },
